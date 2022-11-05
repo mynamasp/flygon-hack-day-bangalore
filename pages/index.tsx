@@ -1,3 +1,4 @@
+import Airlines from "../components/indexPage/Airlines";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "../components/Header";
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <BookingCard />
+      <Airlines />
     </div>
   );
 };
