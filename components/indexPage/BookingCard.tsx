@@ -8,7 +8,7 @@ type Props = {};
 const BookingCard = (props: Props) => {
   return (
     <>
-      <div className="w-screen flex mt-10">
+      <div className="w-screen flex pt-[10rem]">
         <div className="w-3/8 space-x-3 mx-auto bg-white p-5 rounded-lg flex justify-evenly items-stretch">
           <div className="flex flex-col">
             <div className="flex flex-row space-x-5">

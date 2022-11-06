@@ -46,7 +46,7 @@ const Header = () => {
     setMenu(null);
   };
   const wallet_address: string = "0x9c169e7b2dA3401CC4e83B7c7BB08Ae8C6eBEB4E";
-  //   const wallet_address: string = "";
+  // const wallet_address: string = "";
   const router = useRouter();
   const path = router.pathname;
 
@@ -55,9 +55,9 @@ const Header = () => {
   if (!router.pathname) return null;
 
   return (
-    <div className="pt-10">
+    <div className="pt-10 fixed w-full">
       <div className="w-2/3 shadow-lg mx-auto rounded-full bg-primary px-5 md:px-10 flex justify-between items-center">
-        <div className="">
+        <div className="" onClick={() => router.push("/")}>
           <Image
             className="w-16 h-16 rounded-full shadow-xl scale-75 md:hover:scale-50 duration-300 md:cursor-pointer ease out"
             src={require("../assets/images/logo.png")}
