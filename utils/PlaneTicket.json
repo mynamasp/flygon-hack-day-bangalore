@@ -1,0 +1,298 @@
+[
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "userAddress",
+				"type": "address"
+			}
+		],
+		"name": "findTickets",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "fromAdd",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "PassengerName1",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "PassengerName2",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "PassengerName3",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "PassengerName4",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "flightNumber",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "DOJ",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "Duration",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "class",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "fromCity",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "toCity",
+						"type": "string"
+					}
+				],
+				"internalType": "struct PlaneTicket.TicketDetail[]",
+				"name": "filteredTickets",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getBalance",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "userAddress",
+				"type": "address"
+			}
+		],
+		"name": "getFlightDetails",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "fromAdd",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "PassengerName1",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "PassengerName2",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "PassengerName3",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "PassengerName4",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "flightNumber",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "DOJ",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "Duration",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "class",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "fromCity",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "toCity",
+						"type": "string"
+					}
+				],
+				"internalType": "struct PlaneTicket.TicketDetail",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address payable",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "PassengerName1",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "PassengerName2",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "PassengerName3",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "PassengerName4",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "flightNumber",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "DOJ",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "Duration",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "class",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "fromCity",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "toCity",
+				"type": "string"
+			}
+		],
+		"name": "setFlightDetails",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "ticketHolder",
+		"outputs": [
+			{
+				"internalType": "address payable",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "transfer",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "withdraw",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
