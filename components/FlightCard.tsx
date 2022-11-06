@@ -1,10 +1,13 @@
 import type { NextPage } from "next";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import {useRouter} from "next/router"
 
 const FlightCard = (props: {
   flight: { airway: any; departure: any; time: any; arival: any; cost: any };
 }) => {
   const { airway, departure, time, arival, cost } = props.flight;
+  const router= useRouter();
+
   return (
     <div className="mt-10 w-[50rem]">
       <div className="flex justify-between items-center border-0 cursor-pointer rounded-3xl p-7 bg-black/60 text-white hover:bg-opacity-40">
@@ -31,7 +34,10 @@ const FlightCard = (props: {
             {cost}
           </p>
         </div>
-        <button className="px-4 py-1 rounded-md md:hover:bg-red-500 bg-red-600">
+        <button onClick={() => router.push({
+                pathname: '/passenger',
+                // query: { ...res.data.data.user, user },
+            })} className="px-4 py-1 rounded-md md:hover:bg-red-500 bg-red-600">
           Book Now
         </button>
       </div>
