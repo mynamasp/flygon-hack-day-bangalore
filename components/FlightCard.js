@@ -1,9 +1,6 @@
-import type { NextPage } from "next";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
-const FlightCard = (props: {
-  flight: { airway: any; departure: any; time: any; arival: any; cost: any };
-}) => {
+const FlightCard = (props) => {
   const { airway, departure, time, arival, cost } = props.flight;
   return (
     <div className="mt-10 w-[50rem]">

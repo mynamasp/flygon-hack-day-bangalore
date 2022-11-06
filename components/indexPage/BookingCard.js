@@ -3,9 +3,7 @@ import { MdFlightTakeoff, MdFlightLand } from "react-icons/md";
 import { BsFillCalendarDateFill, BsPersonLinesFill } from "react-icons/bs";
 import { TextField } from "@mui/material";
 
-type Props = {};
-
-const BookingCard = (props: Props) => {
+const BookingCard = (props) => {
   return (
     <>
       <div className="w-screen flex pt-[10rem]">

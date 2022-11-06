@@ -1,5 +1,4 @@
-import type { NextPage } from "next";
-import DateCard from "../components/DateCard";
+import DateCard from "../components/DateCard.js";
 import FlightCard from "../components/FlightCard";
 import Header from "../components/Header";
 
@@ -63,7 +62,7 @@ const RenderDates = dates.map((date) => {
   return <DateCard date={date} month={month}></DateCard>;
 });
 
-const Flights: NextPage = () => {
+const Flights = () => {
   const date = 6;
   const month = "Nov";
   return (

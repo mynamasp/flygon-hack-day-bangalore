@@ -13,8 +13,6 @@ require('dotenv').config();
 
 const fs = require("fs");
 
-const countapi = require('countapi-js');
-
 
 const alchemyKey = "https://polygon-mumbai.g.alchemy.com/v2/uGmpXFE_RAcQpm4Cgwsu857UkQQY7GrX";
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
@@ -52,8 +50,6 @@ let cidHash = ""
 
 
 const ticketInfo = new web3.eth.Contract(contractABI,contractAddress);
-
-
 
 
 function randomUniqueNum(range, outputCount) {

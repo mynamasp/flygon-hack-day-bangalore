@@ -1,4 +1,3 @@
-require('dotenv').config();
 const alchemyKey = "https://polygon-mumbai.g.alchemy.com/v2/uGmpXFE_RAcQpm4Cgwsu857UkQQY7GrX";
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(alchemyKey); 
@@ -10,8 +9,6 @@ const contractAddress = "0x0940C071eB69fb7892a1d49249Bd8f6AFcCceF21";
     contractABI,
     contractAddress
   );
-
-
 
 export const connectWallet = async () => {
     if (window.ethereum) {

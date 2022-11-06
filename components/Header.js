@@ -6,6 +6,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import { IoIosArrowDropdown } from "react-icons/io";
 import InfoIcon from "@mui/icons-material/Info";
 import ContactPageIcon from "@mui/icons-material/ContactPage";
+import {connectWallet} from "../utils/interact"
 import {
   IconButton,
   List,
@@ -37,22 +38,57 @@ const routes = [
 ];
 
 const Header = () => {
+  const [walletAddress, setWallet] = useState<string>("");
+  const [status, setStatus] = useState<any>("");
+
   const [menu, setMenu] = React.useState<null | HTMLElement>(null);
   const open = Boolean(menu);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  const handleClick = (event) => {
     setMenu(event.currentTarget);
   };
   const handleClose = () => {
     setMenu(null);
   };
-  const wallet_address: string = "0x9c169e7b2dA3401CC4e83B7c7BB08Ae8C6eBEB4E";
-  // const wallet_address: string = "";
+  // const wallet_address: string = "0x9c169e7b2dA3401CC4e83B7c7BB08Ae8C6eBEB4E";
+  const wallet_address = "";
   const router = useRouter();
   const path = router.pathname;
 
   const [menuState, setMenuState] = useState(false);
 
   if (!router.pathname) return null;
+
+  function addWalletListener() { //TODO: implement
+    if(window.ethereum){
+      window.ethereum.on("accountsChanged",(accounts) => {
+        if(accounts.length > 0){
+          setWallet(accounts[0]);
+          setStatus("👆🏽 Write a message in the text-field above.");
+        }else{
+          setWallet("");
+          setStatus("🦊 Connect to Metamask using the top right button.");
+        }
+      });
+    }else{
+      setStatus(
+        <p>
+        {" "}
+        🦊{" "}
+        <a target="_blank" href={`https://metamask.io/download.html`}>
+          You must install Metamask, a virtual Ethereum wallet, in your
+          browser.
+        </a>
+      </p>
+      );
+    }
+
+  }
+  const connectWalletPressed = async () => { //TODO: implement
+    const walletResponse = await connectWallet();
+    setStatus(walletResponse.status);
+    setWallet(walletResponse.address);
+
+  };
 
   return (
     <div className="pt-10 fixed w-full">
@@ -101,7 +137,7 @@ const Header = () => {
           ))}
 
           {!wallet_address ? (
-            <button className="bg-gradient-to-r from-blue-500 md:hover:scale-75 duration-300 ease-out to-blue-900 rounded-lg px-4 py-2 font-semibold">
+            <button onClick={connectWalletPressed} className="bg-gradient-to-r from-blue-500 md:hover:scale-75 duration-300 ease-out to-blue-900 rounded-lg px-4 py-2 font-semibold">
               Connect Wallet
             </button>
           ) : (

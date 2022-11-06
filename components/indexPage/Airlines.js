@@ -1,8 +1,6 @@
 import React from "react";
 
-type Props = {};
-
-const Airlines = (props: Props) => {
+const Airlines = (props) => {
   return (
     <div className="w-screen text-center ">
       <p className="text-3xl font-bold my-5 text-white">Top Airlines</p>
@@ -18,12 +16,7 @@ const Airlines = (props: Props) => {
 
 export default Airlines;
 
-interface CardProps {
-  title: string;
-  logo: string;
-}
-
-const Cards = ({ title, logo }: CardProps) => {
+const Cards = ({ title, logo }) => {
   return (
     <div className="bg-white p-10 rounded-lg">
       <div>{title}</div>
