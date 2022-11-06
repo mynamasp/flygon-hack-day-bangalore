@@ -1,2 +1,2 @@
-Smart Contract Deployed at 0xf899079721eae03E4EB62E1b98C95992e255e481
+Smart Contract Deployed at 0x0940C071eB69fb7892a1d49249Bd8f6AFcCceF21 <br>
 NFT Generator Deployed at 0x8Bf0eDc0a88975e4E15A4F4B9c2751d7082AaF7B
