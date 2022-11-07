@@ -7,6 +7,8 @@ import { IoIosArrowDropdown } from "react-icons/io";
 import InfoIcon from "@mui/icons-material/Info";
 import ContactPageIcon from "@mui/icons-material/ContactPage";
 import {connectWallet} from "../utils/interact"
+import Popup from 'reactjs-popup';
+
 import {
   IconButton,
   List,
@@ -38,10 +40,10 @@ const routes = [
 ];
 
 const Header = () => {
-  const [walletAddress, setWallet] = useState<string>("");
-  const [status, setStatus] = useState<any>("");
+  const [walletAddress, setWallet] = useState("");
+  const [status, setStatus] = useState("");
 
-  const [menu, setMenu] = React.useState<null | HTMLElement>(null);
+  const [menu, setMenu] = React.useState(null);
   const open = Boolean(menu);
   const handleClick = (event) => {
     setMenu(event.currentTarget);
@@ -58,31 +60,31 @@ const Header = () => {
 
   if (!router.pathname) return null;
 
-  function addWalletListener() { //TODO: implement
-    if(window.ethereum){
-      window.ethereum.on("accountsChanged",(accounts) => {
-        if(accounts.length > 0){
-          setWallet(accounts[0]);
-          setStatus("👆🏽 Write a message in the text-field above.");
-        }else{
-          setWallet("");
-          setStatus("🦊 Connect to Metamask using the top right button.");
-        }
-      });
-    }else{
-      setStatus(
-        <p>
-        {" "}
-        🦊{" "}
-        <a target="_blank" href={`https://metamask.io/download.html`}>
-          You must install Metamask, a virtual Ethereum wallet, in your
-          browser.
-        </a>
-      </p>
-      );
-    }
+  // function addWalletListener() { //TODO: implement
+  //   if(window.ethereum){
+  //     window.ethereum.on("accountsChanged",(accounts) => {
+  //       if(accounts.length > 0){
+  //         setWallet(accounts[0]);
+  //         setStatus("👆🏽 Write a message in the text-field above.");
+  //       }else{
+  //         setWallet("");
+  //         setStatus("🦊 Connect to Metamask using the top right button.");
+  //       }
+  //     });
+  //   }else{
+  //     setStatus(
+  //       <p>
+  //       {" "}
+  //       🦊{" "}
+  //       <a target="_blank" href={`https://metamask.io/download.html`}>
+  //         You must install Metamask, a virtual Ethereum wallet, in your
+  //         browser.
+  //       </a>
+  //     </p>
+  //     );
+  //   }
 
-  }
+  // }
   const connectWalletPressed = async () => { //TODO: implement
     const walletResponse = await connectWallet();
     setStatus(walletResponse.status);
