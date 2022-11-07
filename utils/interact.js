@@ -165,20 +165,36 @@ export const bookTicket = async (
   //set up transaction parameters
   const transactionParameters = {
     to: contractAddress, // Required except during contract publications.
-    from: address, // must match user's active address.
-    data: ticketInfo.methods
+    from: "0x6dA6bCcea736802a9b45c33A71B34aA4FAA43dD1",
+     // must match user's active address.
+    // data: ticketInfo.methods
+    //   .setFlightDetails(
+    //     parseInt(amount),
+    //     PassengerName1,
+    //     PassengerName2,
+    //     PassengerName3,
+    //     PassengerName4,
+    //     flightNumber,
+    //     DOJ,
+    //     parseInt(Duration),
+    //     fClass,
+    //     fromCity,
+    //     toCity
+    //   )
+    //   .encodeABI(),
+      data: ticketInfo.methods
       .setFlightDetails(
-        parseInt(amount),
-        PassengerName1,
-        PassengerName2,
-        PassengerName3,
-        PassengerName4,
-        flightNumber,
-        DOJ,
-        parseInt(Duration),
-        fClass,
-        fromCity,
-        toCity
+        4,
+        "Chanakya",
+        "Prasanna",
+        "None",
+        "None",
+        "6E 324",
+        "08/11/2022",
+        90,
+        "ECONOMY",
+        "MAA",
+        "BLR"
       )
       .encodeABI(),
   };
