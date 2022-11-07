@@ -77,11 +77,11 @@ function passenger() {
       amount: 4,
       PassengerName1: "Chanakyha",
       PassengerName2: "Prasanna",
-      PassengerName3: "null",
-      PassengerName4: "null",
+      PassengerName3: "non",
+      PassengerName4: "non",
       flightNumber: "CC0332",
       DOJ: "07/11/2022",
-      Duration: "90",
+      Duration: 90,
       fClass: "Economy",
       fromCity: "MAA",
       toCity: "BLR",
@@ -174,7 +174,7 @@ function passenger() {
           </div>
           {activeStep === steps.length ? (
             <React.Fragment>
-              <Typography sx={{ mt: 2, mb: 1 }}>Payment Successful</Typography>
+              <Typography sx={{ mt: 2, mb: 1 }}> Thank you for using us, Your Ticket will be booked soon </Typography>
               <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
                 <Box sx={{ flex: "1 1 auto" }} />
                 <Button onClick={handleReset}>Done</Button>
