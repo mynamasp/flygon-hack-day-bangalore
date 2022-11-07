@@ -1,6 +1,4 @@
-import type { NextPage } from "next";
-
-const DateCard = (props: { date: any; month: any }) => {
+const DateCard = (props) => {
   const date = props.date;
   const month = props.month;
   return (

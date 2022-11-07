@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { useRouter } from "next/router";
@@ -6,8 +6,8 @@ import HomeIcon from "@mui/icons-material/Home";
 import { IoIosArrowDropdown } from "react-icons/io";
 import InfoIcon from "@mui/icons-material/Info";
 import ContactPageIcon from "@mui/icons-material/ContactPage";
-import {connectWallet} from "../utils/interact"
-import Popup from 'reactjs-popup';
+import { connectWallet } from "../utils/interact";
+import Popup from "reactjs-popup";
 
 import {
   IconButton,
@@ -20,6 +20,7 @@ import {
   MenuItem,
   SwipeableDrawer,
 } from "@mui/material";
+import { useWallet } from "../useWallet";
 
 const routes = [
   {
@@ -40,10 +41,8 @@ const routes = [
 ];
 
 const Header = () => {
-  const [walletAddress, setWallet] = useState("");
-  const [status, setStatus] = useState("");
-
-  const [menu, setMenu] = React.useState(null);
+  const { walletAddress, setStatus, setWallet } = useWallet();
+  const [menu, setMenu] = useState(null);
   const open = Boolean(menu);
   const handleClick = (event) => {
     setMenu(event.currentTarget);
@@ -51,8 +50,6 @@ const Header = () => {
   const handleClose = () => {
     setMenu(null);
   };
-  // const wallet_address: string = "0x9c169e7b2dA3401CC4e83B7c7BB08Ae8C6eBEB4E";
-  const wallet_address = "";
   const router = useRouter();
   const path = router.pathname;
 
@@ -85,11 +82,11 @@ const Header = () => {
   //   }
 
   // }
-  const connectWalletPressed = async () => { //TODO: implement
+
+  const connectWalletPressed = async () => {
     const walletResponse = await connectWallet();
     setStatus(walletResponse.status);
     setWallet(walletResponse.address);
-
   };
 
   return (
@@ -138,8 +135,11 @@ const Header = () => {
             </p>
           ))}
 
-          {!wallet_address ? (
-            <button onClick={connectWalletPressed} className="bg-gradient-to-r from-blue-500 md:hover:scale-75 duration-300 ease-out to-blue-900 rounded-lg px-4 py-2 font-semibold">
+          {!walletAddress ? (
+            <button
+              onClick={connectWalletPressed}
+              className="bg-gradient-to-r from-blue-500 md:hover:scale-75 duration-300 ease-out to-blue-900 rounded-lg px-4 py-2 font-semibold"
+            >
               Connect Wallet
             </button>
           ) : (
@@ -149,7 +149,7 @@ const Header = () => {
                 className="flex items-center space-x-2 bg-gradient-to-r from-green-500 duration-300 to-green-900 rounded-lg px-4 py-2 font-semibold"
               >
                 <p>
-                  {wallet_address.slice(0, 6)}...{wallet_address.slice(-4)}
+                  {walletAddress.slice(0, 6)}...{walletAddress.slice(-4)}
                 </p>
                 <IoIosArrowDropdown />
               </button>

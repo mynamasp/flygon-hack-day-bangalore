@@ -2,8 +2,10 @@ import React from "react";
 import { MdFlightTakeoff, MdFlightLand } from "react-icons/md";
 import { BsFillCalendarDateFill, BsPersonLinesFill } from "react-icons/bs";
 import { TextField } from "@mui/material";
+import { useRouter } from "next/router";
 
 const BookingCard = (props) => {
+  const router = useRouter();
   return (
     <>
       <div className="w-screen flex pt-[10rem]">
@@ -15,8 +17,8 @@ const BookingCard = (props) => {
                 <div className="flex flex-col items-start justify-between">
                   <p className="text-md font-semibold text-gray-600">FROM</p>
                   <TextField id="standard-basic" variant="standard" />
-                  <p className="text-sm text-gray-800 font-semibold">
-                    Chennai, International Airport
+                  <p className="text-sm italic text-gray-500 mt-3 font-semibold">
+                    Eg: Chennai, International Airport
                   </p>
                 </div>
               </div>
@@ -25,8 +27,8 @@ const BookingCard = (props) => {
                 <div className="flex flex-col items-start justify-between">
                   <p className="text-md font-semibold text-gray-600">TO</p>
                   <TextField id="standard-basic" variant="standard" />
-                  <p className="text-sm text-gray-800 font-semibold">
-                    Bangalore, International Airport
+                  <p className="text-sm italic mt-3 text-gray-500 font-semibold">
+                    Eg: Bangalore, International Airport
                   </p>
                 </div>
               </div>
@@ -37,7 +39,7 @@ const BookingCard = (props) => {
                     Departure
                   </p>
                   <p className="text-2xl font-bold">6 Nov 2022</p>
-                  <p className="text-sm text-gray-800 font-semibold">Sunday</p>
+                  <p className="text-xs text-gray-600 font-semibold">Sunday</p>
                 </div>
               </div>
               <div className="border md:hover:scale-125 bg-white ease-out duration-200 h-[10rem] flex items-center space-x-3 rounded-md p-4">
@@ -46,8 +48,8 @@ const BookingCard = (props) => {
                   <p className="text-md font-semibold text-gray-600">
                     Travellers
                   </p>
-                  <p className="text-xl font-bold">1 Traveller</p>
-                  <p className="text-sm text-gray-800 font-semibold">
+                  <p className="text-xl font-bold">2 Traveller</p>
+                  <p className="text-sm text-gray-600 font-semibold">
                     Economy/Premium Economy
                   </p>
                 </div>
@@ -58,7 +60,10 @@ const BookingCard = (props) => {
         </div>
       </div>
       <div className="w-screen flex justify-center mt-5">
-        <button className="px-6 py-3 duration-300 ease-out md:hover:scale-75 rounded-lg text-white font-bold inline bg-black/40">
+        <button
+          onClick={() => router.push("/search")}
+          className="px-6 py-3 duration-300 ease-out md:hover:scale-75 rounded-lg text-white font-bold inline bg-black/40"
+        >
           Search
         </button>
       </div>
